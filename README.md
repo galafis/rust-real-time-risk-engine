@@ -1,5 +1,10 @@
 # rust-real-time-risk-engine
 
+![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)
+![Tokio](https://img.shields.io/badge/tokio-async-green.svg?style=for-the-badge)
+![WebSocket](https://img.shields.io/badge/websocket-realtime-blue.svg?style=for-the-badge)
+
 **A real-time risk engine in Rust for calculating Value at Risk (VaR) from live market data streams.**
 
 ---
