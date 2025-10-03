@@ -1,0 +1,39 @@
+[workspace]
+members = [
+    "crates/core",
+    "crates/market_data",
+    "crates/risk_calculator",
+    "crates/utils",
+]
+resolver = "2"
+
+[workspace.dependencies]
+tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = { version = "0.17.2", features = ["native-tls"] }
+url = "2.2.2"
+serde_json = "1.0"
+log = "0.4.20"
+env_logger = "0.10.0"
+anyhow = "1.0.75"
+
+# Local Crates
+rtre-core = { path = "crates/core" }
+rtre-market_data = { path = "crates/market_data" }
+rtre-risk_calculator = { path = "crates/risk_calculator" }
+rtre-utils = { path = "crates/utils" }
+
+# Root package for running examples
+[package]
+name = "rust-real-time-risk-engine"
+version = "0.1.0"
+edition = "2021"
+authors = ["Gabriel Demetrios Lafis"]
+
+[dependencies]
+anyhow = { workspace = true }
+rtre-core = { workspace = true }
+rtre-market_data = { workspace = true }
+rtre-risk_calculator = { workspace = true }
+rtre-utils = { workspace = true }
+tokio = { workspace = true }
+

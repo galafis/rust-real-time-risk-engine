@@ -1,0 +1,15 @@
+[package]
+name = "rtre-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Gabriel Demetrios Lafis"]
+
+[dependencies]
+log = { workspace = true }
+tokio = { workspace = true }
+rtre-market_data = { path = "../market_data" }
+rtre-risk_calculator = { path = "../risk_calculator" }
+
+
+
+anyhow = { workspace = true }
