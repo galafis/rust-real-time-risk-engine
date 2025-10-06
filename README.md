@@ -122,6 +122,12 @@ async fn main() -> Result<()> {
 
 The engine follows a reactive streaming architecture:
 
+<div align="center">
+  <img src="docs/streaming_architecture.png" alt="Streaming Architecture" width="700"/>
+</div>
+
+### Streaming Flow
+
 ```
 ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
 │  WebSocket   │ ───> │   Stream     │ ───> │     Risk     │

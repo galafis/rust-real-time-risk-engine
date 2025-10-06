@@ -1,0 +1,59 @@
+graph TB
+    subgraph "Data Sources"
+        WS1[Finnhub WebSocket]
+        WS2[Binance WebSocket]
+        WS3[Other Feeds]
+    end
+    
+    subgraph "Ingestion Layer"
+        Connect[WebSocket<br/>Connection Manager]
+        Buffer[Message Buffer]
+    end
+    
+    subgraph "Processing Layer"
+        Parse[Parse Market Data]
+        Validate[Validate & Clean]
+        Enrich[Enrich with<br/>Historical Data]
+    end
+    
+    subgraph "Risk Calculation"
+        VaR[Calculate VaR]
+        ES[Calculate ES]
+        Stress[Stress Testing]
+    end
+    
+    subgraph "Output"
+        Alerts[Risk Alerts]
+        Dashboard[Real-Time<br/>Dashboard]
+        Log[Risk Log]
+    end
+    
+    WS1 -->|Stream| Connect
+    WS2 -->|Stream| Connect
+    WS3 -->|Stream| Connect
+    Connect --> Buffer
+    Buffer --> Parse
+    Parse --> Validate
+    Validate --> Enrich
+    Enrich --> VaR
+    Enrich --> ES
+    Enrich --> Stress
+    VaR --> Alerts
+    ES --> Alerts
+    Stress --> Alerts
+    VaR --> Dashboard
+    ES --> Dashboard
+    Stress --> Dashboard
+    Alerts --> Log
+    
+    style Connect fill:#e1f5ff
+    style Buffer fill:#e1f5ff
+    style Parse fill:#fff4e1
+    style Validate fill:#fff4e1
+    style Enrich fill:#fff4e1
+    style VaR fill:#ffe1f5
+    style ES fill:#ffe1f5
+    style Stress fill:#ffe1f5
+    style Alerts fill:#e8f5e9
+    style Dashboard fill:#e8f5e9
+    style Log fill:#e8f5e9
