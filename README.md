@@ -126,6 +126,24 @@ The engine follows a reactive streaming architecture:
   <img src="docs/streaming_architecture.png" alt="Streaming Architecture" width="700"/>
 </div>
 
+```mermaid
+flowchart LR
+    A[Position Updates\nWebSocket Feed] --> B[Real-time Risk Calc\nTokio Async]
+    B --> C[VaR & PnL\n95%/99% Confidence]
+    C --> D[Limit Check\nThreshold Validation]
+    D --> E{Breach?}
+    E -- Yes --> F[Alerts\nNotification / Action]
+    E -- No --> G[Continue\nMonitoring]
+
+    style A fill:#1a1a2e,stroke:#e94560,color:#fff
+    style B fill:#16213e,stroke:#0f3460,color:#fff
+    style C fill:#0f3460,stroke:#533483,color:#fff
+    style D fill:#533483,stroke:#e94560,color:#fff
+    style E fill:#16213e,stroke:#0f3460,color:#fff
+    style F fill:#e94560,stroke:#fff,color:#fff
+    style G fill:#1a1a2e,stroke:#e94560,color:#fff
+```
+
 ### Streaming Flow
 
 ```
